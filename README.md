@@ -27,10 +27,10 @@ Angular library module 종류
 
 원하는 특정 모듈만 선택하여 import 한다
 
-ex)
+```
 // @angular/core 패키지중 Component 만 호출
 import { Component  } from ‘@angular/core’;         
-
+```
 
 
 
@@ -44,7 +44,7 @@ import { Component  } from ‘@angular/core’;
 서비스, 함수와 같은 장식자가 없는 모듈
 
 
-ex)
+```
 //장식자가 없는 모듈 예제 (클래스, 값, 함수..)
 
 //클래스
@@ -66,18 +66,19 @@ export var DISTRICT: District[] = [
 export function echo(msg:string){
    return msg;
 }
-
+```
 외부로 공개할 모듈은 export 이용 선언
 export ES6부터 지원
 이것은 모듈입니다 알리는것 
 다른모듈에서 해당 모듈로 접근 가능한 상태가 된다
 
 위 모듈이 hello.module 일때
+```
 //import 방법
 import {Message, echo, DISTRICT} from ‘./hello.module’;
 //이름 변경 import
 import {echo as echo2} from ‘./hello.module’;
-
+```
 
 
 ## 6.1.2 모듈성과 Angular 모듈
@@ -124,19 +125,19 @@ ex) 게시판 (글쓰기, 리스트 컴포넌트, 여러 서비스 지시자와 
 ## 6.2.1 애플리케이션 루트 모듈 선언
 
 항상 정의되어 있어야하는 모듈
-
+```
 @NgModule({
    imports: [호출할 모듈1, 호출한 모듈2, ...],
    exports: [노출할 모듈1, 노출할 모듈2, ...],
    declarations: [사용할 구성요소1, 사용할 구성요소2, …],
    bootstrap: [애플리케이션 컴포넌트]
 })
-
+```
 ## NgModule 은 애플리케이션 모듈에 대한 메타데이터 정보를 제공
 선언자 (declarations), 호출자 (imports), 제공자 (providers), 부트스트랩 (bootstrap)  속성이 있음
 
 
-
+```
 ex) \module\src\app\app.module.ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -159,7 +160,7 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
+```
 imports 속성
 BrowserModule : Angular가 브라우저 상에서 동작한다면 반드시 포함
 CommonModule : 템플릿에서 사용하는 ngIf , ngFor 와 관련된 기능 포함
@@ -175,6 +176,7 @@ declarations 속성
 bootstrap 속성
 	최상위 컴포넌트인 애플리케이션 컴포넌트를 등록
 	ex) 이때 선언되는 애플리케이션 컴포넌트
+```
 \module\src\app\app.component.ts
 import { Component } from '@angular/core';
 
@@ -184,7 +186,7 @@ import { Component } from '@angular/core';
     <router-outlet></router-outlet>`
 })
 export class AppComponent { }
-
+```
 
 
 router-outlet 에 표시할 컴포넌트가 있다면 애플리케이션 라우팅 모듈 설정에 등록한다
@@ -193,7 +195,7 @@ router-outlet 에 표시할 컴포넌트가 있다면 애플리케이션 라우�
 
 
 
-
+```
 ex) \module\src\app\app-routing.module.ts
 
 import { NgModule } from '@angular/core';
@@ -214,13 +216,14 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-
+```
 
 appRoutes  변수는 라우팅 설정을 담고 있으며 입력 URL 에 대응하는 컴포넌트로 라우팅 되게 한다
 
 
 ## 애플리케이션 루트 모듈에 라우팅 모듈 등록
 
+```
 /* 어플리케이션 라우팅 모듈 */
 import { AppRoutingModule } from './app-routing.module';
 
@@ -229,7 +232,7 @@ import { AppRoutingModule } from './app-routing.module';
      ....
      AppRoutingModule
   ],
-
+```
 
 
 ## 6.2.2 핵심 모듈
@@ -248,7 +251,7 @@ ex) 타이틀 컴포넌트
 
 
 
-
+```
 ex)  
 \module\src\app\core\title.component.ts
 
@@ -296,6 +299,7 @@ export class UserService {
     return this._nickName;
   }
 }
+```
 
 
 
@@ -303,8 +307,7 @@ export class UserService {
 
 
 
-
-
+```
 ex) 마지막으로 핵심 모듈 설정
 \module\src\app\core\core.module.ts
 
@@ -338,7 +341,7 @@ export class CoreModule {
     };
   }
 }
-
+```
 
 // 핵심 모듈을 루트모듈에 추가하기 위해 
 TitleComponent 선언하고 @NgModule exports 에 선언
@@ -363,6 +366,7 @@ TitleComponent 선언하고 @NgModule exports 에 선언
 
 ## 루트모듈에 핵심 모듈 등록
 
+```
 ex) \module\src\app\app.module.ts
 
 //핵심 모듈 import
@@ -377,10 +381,11 @@ CoreModule.forRoot({nickName: 'Happy'}),
   ],
 })
 export class AppModule { }
-
+```
 
 ## 핵심모듈 테스트
 
+```
 ex) \module\src\app\core-test\core-test.component.ts
 
 import { Component } from '@angular/core';
@@ -395,9 +400,11 @@ export class CoreTestComponent {
   title = '반갑습니다! Core Module!';
 
 }
+```
 
 ## 테스트 컴포넌트를 라우터에 등록해서 url 로 접근 가능하게 만듬
 
+```
 ex)
 \module\src\app\app-routing.module.ts
 
@@ -414,7 +421,7 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-
+```
 
 
 
@@ -461,6 +468,7 @@ ex)
 
 하이라이트 지시자 구성요소 추가 예제
 
+```
 ex) 
 \module\src\app\member\highlight.directive.ts
 
@@ -485,12 +493,14 @@ export class HighlightDirective {
     this.el.style.color ="black";
   }
 }
+```
 
 위 지시자는 하이라이트 기능이 있고
  @HostListener를 통해 등록된 이벤트에 따라 선언영역에 마우스 색갈 바꾸는 기능
 
 그다음 서비스 정의
 
+```
 ex)
 \module\src\app\member\member.service.ts
 
@@ -523,9 +533,9 @@ export class MemberService {
   }
   
 }
+```
 
-
-
+```
 ex) 출력하는 테스트 컴포넌트
 \module\src\app\member\member-list.component.ts
 
@@ -562,6 +572,7 @@ export class MemberListComponent {
     });
   }
 }
+```
 
 컴포넌트 생명주기인 ngOnInit 을 통해 
 초기화 할때  memberService 로부터 데이터를 받아온다
@@ -577,6 +588,7 @@ export class MemberListComponent {
 
 특징 모듈은 루트 모듈의 하위 모듈이며 루트와 유사하게 구성
 
+```
 ex)
 \module\src\app\member\member.module.ts
 
@@ -618,13 +630,13 @@ import { MemberListComponent }    from './member-list.component';
   exports: [RouterModule]
 })
 export class MemberRoutingModule {}
+```
 
 
 
 
 
-
-
+```
 ex) 특징 모듈을 루트에 등록
 
 \module\src\app\app.module.ts
@@ -647,6 +659,7 @@ import { MemberModule } from './member/member.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+```
 
 특징 모듈과의 차이는 bootstrap 속성이 있냐 없냐의 차이 (루트에만 있음)
 
@@ -677,8 +690,9 @@ BrowerModule, FormsModule 을 공유 모듈로 묶고
 
 ## 공유 모듈에서 사용할 구성요소 정의
 
+```
 ex) 
-하이라이트 지시자는 영역에 마우스 커서 들어오면 배경 빨강으로 바꾸는 지시자
+//하이라이트 지시자는 영역에 마우스 커서 들어오면 배경 빨강으로 바꾸는 지시자
 \module\src\app\shared\highlight.directive.ts
 
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
@@ -703,7 +717,8 @@ export class HighlightDirective {
   }
   
 }
-
+```
+```
 ex)
 파이프 추가 
 myupper 파이프 : 입력을  대문자로 변환하는 파이프
@@ -716,7 +731,7 @@ export class MyUpperPipe implements PipeTransform {
     return phrase.toUpperCase();
   }
 }
-
+```
 
 
 
@@ -728,6 +743,7 @@ export class MyUpperPipe implements PipeTransform {
 
 ## 지시자와 파이프를 공유 모듈에 등록
 
+```
 ex)
 \module\src\app\shared\shared.module.ts
 
@@ -745,6 +761,7 @@ import { HighlightDirective } from './highlight.directive';
     CommonModule, FormsModule]
 })
 export class SharedModule { }
+```
 
 declarations 선언을 통해 모듈로 등록
 exports 를 통해 외부로 노출
@@ -754,8 +771,8 @@ exports 를 통해 외부로 노출
 
 ## 공유 모듈을 이용한 모듈 작성과 결과 테스트 
 
-ex)
-테스트할 컴포넌트 등록
+```
+ex)테스트할 컴포넌트 등록
 \module\src\app\player\player.component.ts
 
 import { Component } from '@angular/core';
@@ -765,22 +782,13 @@ import { Component } from '@angular/core';
   template: `<div highlight>{{"player!!!"|myupper}}</div>`
 })
 export class PlayerComponent { }
+```
 
 highlight지시자 와 myupper파이프 정의
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+```
 ex)
 라우터정의
 \module\src\app\player\player-routing.module.ts
@@ -799,15 +807,13 @@ import { PlayerComponent } from './player.component';
   exports: [RouterModule]
 })
 export class PlayerRoutingModule { }
-
+```
 
 // path: '',  루트 패스 //redirectTo   설정되어있으면 그쪽으로 라우팅
 
 
-
+```
 ex) 
-
-
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
@@ -821,18 +827,11 @@ import { PlayerComponent } from './player.component';
   providers: []
 })
 export class PlayerModule { }
+```
+
 
 앞서 공유한 shareModule 을 import 
 덕분에 PlayerModule 에 선언하는 모듈의 갯수가 줄어들었음
-
-
-
-
-
-
-
-
-
 
 
 
@@ -851,10 +850,13 @@ url 요청하는 시점에
 
 설정은 loadChildren 속성이용
 
+```
 { path: ‘lazy’ , loadchildren: ‘app/player/player.module#PlayerModule’ },
+```
 
  '#을 기준으로 모듈파일과 모듈 클래스로 구분'
 
+```
 ex)
 \module\src\app\app-routing.module.ts
 
@@ -870,7 +872,7 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-
+```
 
 // /lazy 요청이 들어오면 app/player/player.module import
 

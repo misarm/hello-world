@@ -19,8 +19,9 @@ Angular가 제공하는 모듈  : Angular library module
 Angular library module 종류
 지시자, 파이프, 장식자, 클래스 , 인터페이스, 함수, Enum, type alias, 상수 (Const)
 
-주요 패키지
+주요 패키지 
 
+![Image](https://github.com/misarm/misarm.github.io/blob/master/image.png?raw=true)
 
 
 각 패키지는 수많은 모듈로 구성되어 있음
@@ -94,7 +95,7 @@ import {echo as echo2} from ‘./hello.module’;
 
  
 
-
+![Image](https://github.com/misarm/misarm.github.io/blob/master/2.PNG?raw=true)
 
 
 
@@ -449,6 +450,8 @@ ex)
 파이프 모듈 그룹
 
 
+![Image](https://github.com/misarm/misarm.github.io/blob/master/3.PNG?raw=true)
+
 
 특성
 루트모듈 아래 위치 (즉 루트에서 특징모듈 import)
@@ -670,6 +673,10 @@ export class AppModule { }
 공유 모듈은 애플리케이션 관점에서 사용되는 모듈
 자주 사용되지만 핵심 모듈처럼 항상 사용되는건 아니고 
 특징 모듈을 구성할 때 자주 반복적으로 선언 되는 모듈 그룹
+
+
+![Image](https://github.com/misarm/misarm.github.io/blob/master/4.PNG?raw=true)
+
 
 
 공유 모듈 비슷한 성격의 모듈

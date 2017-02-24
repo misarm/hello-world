@@ -1,4 +1,4 @@
-@6 모듈
+##6 모듈
 
 Angular는 많은 모듈의 집합
 뼈대와 같은 역할
@@ -11,8 +11,8 @@ Angular는 많은 모듈의 집합
 모듈이 무엇인지? 모듈을 구성하는 방법을 알아보자
 
 
-@6.1 모듈 소개
-@6.1.1 모듈이란?
+##6.1 모듈 소개
+##6.1.1 모듈이란?
 
 Angular가 제공하는 모듈  : Angular library module 
 
@@ -80,7 +80,7 @@ import {echo as echo2} from ‘./hello.module’;
 
 
 
-@6.1.2 모듈성과 Angular 모듈
+##6.1.2 모듈성과 Angular 모듈
 
 모듈성 (modularity) 개발 비용 관련되어 있음
 모듈성을 갖춤 = 성능 향상될 수 있게 모듈간 결합 최소화, 모듈 내부의 응집도는 최대화
@@ -119,9 +119,9 @@ ex) 게시판 (글쓰기, 리스트 컴포넌트, 여러 서비스 지시자와 
 
 
 
-@6.2 애플리케이션 루트 모듈
+##6.2 애플리케이션 루트 모듈
 
-@6.2.1 애플리케이션 루트 모듈 선언
+##6.2.1 애플리케이션 루트 모듈 선언
 
 항상 정의되어 있어야하는 모듈
 
@@ -132,7 +132,7 @@ ex) 게시판 (글쓰기, 리스트 컴포넌트, 여러 서비스 지시자와 
    bootstrap: [애플리케이션 컴포넌트]
 })
 
-@NgModule 은 애플리케이션 모듈에 대한 메타데이터 정보를 제공
+##NgModule 은 애플리케이션 모듈에 대한 메타데이터 정보를 제공
 선언자 (declarations), 호출자 (imports), 제공자 (providers), 부트스트랩 (bootstrap)  속성이 있음
 
 
@@ -219,7 +219,7 @@ export class AppRoutingModule {}
 appRoutes  변수는 라우팅 설정을 담고 있으며 입력 URL 에 대응하는 컴포넌트로 라우팅 되게 한다
 
 
-@ 애플리케이션 루트 모듈에 라우팅 모듈 등록
+## 애플리케이션 루트 모듈에 라우팅 모듈 등록
 
 /* 어플리케이션 라우팅 모듈 */
 import { AppRoutingModule } from './app-routing.module';
@@ -232,7 +232,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 
-@6.2.2 핵심 모듈
+##6.2.2 핵심 모듈
 
 루트모듈에 한번 설정하면 전역에서 사용하능한 모듈
 
@@ -361,7 +361,7 @@ TitleComponent 선언하고 @NgModule exports 에 선언
 
 
 
-@루트모듈에 핵심 모듈 등록
+##루트모듈에 핵심 모듈 등록
 
 ex) \module\src\app\app.module.ts
 
@@ -379,7 +379,7 @@ CoreModule.forRoot({nickName: 'Happy'}),
 export class AppModule { }
 
 
-@핵심모듈 테스트
+##핵심모듈 테스트
 
 ex) \module\src\app\core-test\core-test.component.ts
 
@@ -396,7 +396,7 @@ export class CoreTestComponent {
 
 }
 
-@테스트 컴포넌트를 라우터에 등록해서 url 로 접근 가능하게 만듬
+##테스트 컴포넌트를 라우터에 등록해서 url 로 접근 가능하게 만듬
 
 ex)
 \module\src\app\app-routing.module.ts
@@ -418,9 +418,9 @@ export class AppRoutingModule {}
 
 
 
-@ 6.3 특징 모듈
+## 6.3 특징 모듈
 
-@ 6.3.1 하위 모듈의 필요성
+## 6.3.1 하위 모듈의 필요성
 
 루트모듈로 애플리케이션을 구성할 수 있지만
 
@@ -457,7 +457,7 @@ ex)
 
 
 
-@6.3.2 특징 모듈에 선언할 구성요소 추가
+##6.3.2 특징 모듈에 선언할 구성요소 추가
 
 하이라이트 지시자 구성요소 추가 예제
 
@@ -570,7 +570,7 @@ export class MemberListComponent {
 
 
 
-@ 6.3.3 특징 모듈 선언
+## 6.3.3 특징 모듈 선언
 
 특징 모듈에 사용할 구성요소는 준비끝
 이제 특징 모듈을 어떻게 구성하는지 살펴보자
@@ -600,7 +600,7 @@ export class MemberModule { }
 
 위 특징 모듈은 멤버리스트를 어떻게 출력할 것인지에 대한 관심사를 갖고 있음
 
-@특징 모듈 라우터 설정
+##특징 모듈 라우터 설정
 
 ex) member-list 주소가 요청되면 MemberListComponent 출력하기위한 라우팅 모듈
 
@@ -652,7 +652,7 @@ export class AppModule { }
 
 
 
-@ 6.3.4 특징 모듈에 공유 모듈 설정
+## 6.3.4 특징 모듈에 공유 모듈 설정
 
 공유 모듈은 애플리케이션 관점에서 사용되는 모듈
 자주 사용되지만 핵심 모듈처럼 항상 사용되는건 아니고 
@@ -675,7 +675,7 @@ BrowerModule, FormsModule 을 공유 모듈로 묶고
 /app/shared
 
 
-@공유 모듈에서 사용할 구성요소 정의
+##공유 모듈에서 사용할 구성요소 정의
 
 ex) 
 하이라이트 지시자는 영역에 마우스 커서 들어오면 배경 빨강으로 바꾸는 지시자
@@ -726,7 +726,7 @@ export class MyUpperPipe implements PipeTransform {
 
 
 
-@ 지시자와 파이프를 공유 모듈에 등록
+## 지시자와 파이프를 공유 모듈에 등록
 
 ex)
 \module\src\app\shared\shared.module.ts
@@ -752,7 +752,7 @@ exports 를 통해 외부로 노출
 이렇게 정의하면 간단하게 다른 모듈에 포함될 수 있음
 
 
-@ 공유 모듈을 이용한 모듈 작성과 결과 테스트 
+## 공유 모듈을 이용한 모듈 작성과 결과 테스트 
 
 ex)
 테스트할 컴포넌트 등록
@@ -837,7 +837,7 @@ export class PlayerModule { }
 
 
 
-@ 6.3.5 게으른 모듈 로딩
+## 6.3.5 게으른 모듈 로딩
 
 기본적으로 모듈을 부지런히(eagerly) 로딩한다 
 다시 말하면 애플리케이션이 시작되면 필요한 모듈을 미리 임포트 해놓음

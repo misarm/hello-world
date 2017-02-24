@@ -1,4 +1,4 @@
-##6 모듈
+## 6 모듈
 
 Angular는 많은 모듈의 집합
 뼈대와 같은 역할
@@ -11,8 +11,8 @@ Angular는 많은 모듈의 집합
 모듈이 무엇인지? 모듈을 구성하는 방법을 알아보자
 
 
-##6.1 모듈 소개
-##6.1.1 모듈이란?
+## 6.1 모듈 소개
+## 6.1.1 모듈이란?
 
 Angular가 제공하는 모듈  : Angular library module 
 
@@ -80,7 +80,7 @@ import {echo as echo2} from ‘./hello.module’;
 
 
 
-##6.1.2 모듈성과 Angular 모듈
+## 6.1.2 모듈성과 Angular 모듈
 
 모듈성 (modularity) 개발 비용 관련되어 있음
 모듈성을 갖춤 = 성능 향상될 수 있게 모듈간 결합 최소화, 모듈 내부의 응집도는 최대화
@@ -119,9 +119,9 @@ ex) 게시판 (글쓰기, 리스트 컴포넌트, 여러 서비스 지시자와 
 
 
 
-##6.2 애플리케이션 루트 모듈
+## 6.2 애플리케이션 루트 모듈
 
-##6.2.1 애플리케이션 루트 모듈 선언
+## 6.2.1 애플리케이션 루트 모듈 선언
 
 항상 정의되어 있어야하는 모듈
 
@@ -132,7 +132,7 @@ ex) 게시판 (글쓰기, 리스트 컴포넌트, 여러 서비스 지시자와 
    bootstrap: [애플리케이션 컴포넌트]
 })
 
-##NgModule 은 애플리케이션 모듈에 대한 메타데이터 정보를 제공
+## NgModule 은 애플리케이션 모듈에 대한 메타데이터 정보를 제공
 선언자 (declarations), 호출자 (imports), 제공자 (providers), 부트스트랩 (bootstrap)  속성이 있음
 
 
@@ -232,7 +232,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 
-##6.2.2 핵심 모듈
+## 6.2.2 핵심 모듈
 
 루트모듈에 한번 설정하면 전역에서 사용하능한 모듈
 
@@ -361,7 +361,7 @@ TitleComponent 선언하고 @NgModule exports 에 선언
 
 
 
-##루트모듈에 핵심 모듈 등록
+## 루트모듈에 핵심 모듈 등록
 
 ex) \module\src\app\app.module.ts
 
@@ -379,7 +379,7 @@ CoreModule.forRoot({nickName: 'Happy'}),
 export class AppModule { }
 
 
-##핵심모듈 테스트
+## 핵심모듈 테스트
 
 ex) \module\src\app\core-test\core-test.component.ts
 
@@ -396,7 +396,7 @@ export class CoreTestComponent {
 
 }
 
-##테스트 컴포넌트를 라우터에 등록해서 url 로 접근 가능하게 만듬
+## 테스트 컴포넌트를 라우터에 등록해서 url 로 접근 가능하게 만듬
 
 ex)
 \module\src\app\app-routing.module.ts
@@ -457,7 +457,7 @@ ex)
 
 
 
-##6.3.2 특징 모듈에 선언할 구성요소 추가
+## 6.3.2 특징 모듈에 선언할 구성요소 추가
 
 하이라이트 지시자 구성요소 추가 예제
 
@@ -600,7 +600,7 @@ export class MemberModule { }
 
 위 특징 모듈은 멤버리스트를 어떻게 출력할 것인지에 대한 관심사를 갖고 있음
 
-##특징 모듈 라우터 설정
+## 특징 모듈 라우터 설정
 
 ex) member-list 주소가 요청되면 MemberListComponent 출력하기위한 라우팅 모듈
 
@@ -675,7 +675,7 @@ BrowerModule, FormsModule 을 공유 모듈로 묶고
 /app/shared
 
 
-##공유 모듈에서 사용할 구성요소 정의
+## 공유 모듈에서 사용할 구성요소 정의
 
 ex) 
 하이라이트 지시자는 영역에 마우스 커서 들어오면 배경 빨강으로 바꾸는 지시자
@@ -853,7 +853,7 @@ url 요청하는 시점에
 
 { path: ‘lazy’ , loadchildren: ‘app/player/player.module#PlayerModule’ },
 
-#을 기준으로 모듈파일과 모듈 클래스로 구분
+ '#을 기준으로 모듈파일과 모듈 클래스로 구분'
 
 ex)
 \module\src\app\app-routing.module.ts

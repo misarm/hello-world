@@ -471,7 +471,7 @@ ex)<br>
 
 하이라이트 지시자 구성요소 추가 예제
 
-```
+```TypeScript
 ex) 
 \module\src\app\member\highlight.directive.ts
 
@@ -503,7 +503,7 @@ export class HighlightDirective {
 
 그다음 서비스 정의
 
-```
+```TypeScript
 ex)
 \module\src\app\member\member.service.ts
 
@@ -538,7 +538,7 @@ export class MemberService {
 }
 ```
 
-```
+```TypeScript
 ex) 출력하는 테스트 컴포넌트
 \module\src\app\member\member-list.component.ts
 
@@ -591,7 +591,7 @@ export class MemberListComponent {
 
 특징 모듈은 루트 모듈의 하위 모듈이며 루트와 유사하게 구성<br>
 
-```
+```TypeScript
 ex)
 \module\src\app\member\member.module.ts
 
@@ -610,6 +610,7 @@ import { MemberService }     from './member.service';
   providers:    [ MemberService ]
 })
 export class MemberModule { }
+```
 
 관심사가 동일한 모듈을 대상으로 구현한다는 것을 다시한번 상기
 
@@ -617,6 +618,7 @@ export class MemberModule { }
 
 ## 특징 모듈 라우터 설정
 
+```TypeScript
 ex) member-list 주소가 요청되면 MemberListComponent 출력하기위한 라우팅 모듈
 
 \module\src\app\member\member-routing.module.ts
@@ -639,7 +641,7 @@ export class MemberRoutingModule {}
 
 
 
-```
+```TypeScript
 ex) 특징 모듈을 루트에 등록
 
 \module\src\app\app.module.ts
@@ -697,7 +699,7 @@ BrowerModule, FormsModule 을 공유 모듈로 묶고<br>
 
 ## 공유 모듈에서 사용할 구성요소 정의
 
-```
+```TypeScript
 ex) 
 //하이라이트 지시자는 영역에 마우스 커서 들어오면 배경 빨강으로 바꾸는 지시자
 \module\src\app\shared\highlight.directive.ts
@@ -725,7 +727,7 @@ export class HighlightDirective {
   
 }
 ```
-```
+```TypeScript
 ex)
 파이프 추가 
 myupper 파이프 : 입력을  대문자로 변환하는 파이프
@@ -750,7 +752,7 @@ export class MyUpperPipe implements PipeTransform {
 
 ## 지시자와 파이프를 공유 모듈에 등록
 
-```
+```TypeScript
 ex)
 \module\src\app\shared\shared.module.ts
 
@@ -778,7 +780,7 @@ exports 를 통해 외부로 노출<br>
 
 ## 공유 모듈을 이용한 모듈 작성과 결과 테스트 
 
-```
+```TypeScript
 ex)테스트할 컴포넌트 등록
 \module\src\app\player\player.component.ts
 
@@ -795,7 +797,7 @@ highlight지시자 와 myupper파이프 정의
 
 
 
-```
+```TypeScript
 ex)
 라우터정의
 \module\src\app\player\player-routing.module.ts
@@ -819,7 +821,7 @@ export class PlayerRoutingModule { }
 // path: '',  루트 패스 //redirectTo   설정되어있으면 그쪽으로 라우팅
 
 
-```
+```TypeScript
 ex) 
 import { NgModule } from '@angular/core';
 
@@ -857,13 +859,13 @@ url 요청하는 시점에 <br>
 
 설정은 loadChildren 속성이용
 
-```
+```TypeScript
 { path: ‘lazy’ , loadchildren: ‘app/player/player.module#PlayerModule’ },
 ```
 
  '#을 기준으로 모듈파일과 모듈 클래스로 구분'
 
-```
+```TypeScript
 ex)
 \module\src\app\app-routing.module.ts
 
